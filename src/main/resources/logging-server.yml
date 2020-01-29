@@ -1,0 +1,22 @@
+# Spring properties
+spring:
+  application:
+    name: logging-service
+# Map the error path to error template (for Thymeleaf)
+error.path: /error
+
+# HTTP Server
+server.port: 2222   # HTTP (Tomcat) port
+
+# Discovery Server Access
+#  1. DEV ONLY: Reduce the lease renewal interval to speed up registration
+#  2. Define URL of registration server (defaultZone)
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 5   # DO NOT DO THIS IN PRODUCTION
+
+management.endpoints.web.exposure.include: '*'
+
